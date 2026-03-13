@@ -5,7 +5,7 @@ export const getHazards = (assessmentId: string) => {
   return api.get(`/assessments/${assessmentId}/hazards`);
 };
 
-export const updateHazard = (id: string, payload: Hazard) => {
+export const updateHazard = (id: string, payload: Partial<Hazard>) => {
   return api.put(`/hazards/${id}`, payload);
 };
 

@@ -16,7 +16,7 @@ type HazardStore = {
 
   fetchHazards: (assessmentId: string) => Promise<void>;
   addHazard: (payload: Partial<Hazard>) => Promise<void>;
-  updateHazard: (id: string, payload: Hazard) => Promise<void>;
+  updateHazard: (id: string, payload: Partial<Hazard>) => Promise<void>;
   removeHazard: (hazardId: string, assessmentId: string) => Promise<void>;
   clearhazards: (assessmentId: string) => void;
   clearError: () => void;
