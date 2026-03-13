@@ -188,9 +188,11 @@ export default function AddHazardForm({
           )}
         </label>
 
-        <button type="submit" className="primary-button">
-          Save
-        </button>
+        <div className="flex-center">
+          <button type="submit" className="primary-button">
+            Save
+          </button>
+        </div>
       </form>
     </section>
   );

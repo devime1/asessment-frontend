@@ -17,9 +17,11 @@ export default function AssessmentMetaForm({ assessment, onSubmit }: Props) {
   const [title, setTitle] = useState(assessment ? assessment.title : "");
   const [status, setStatus] = useState(assessment ? assessment.status : "");
   const [review_date, setReviewDate] = useState(
-    assessment ? assessment.review_date ?? "" : "",
+    assessment ? (assessment.review_date ?? "") : "",
   );
-  const [notes, setNotes] = useState(assessment ? assessment.notes ?? "" : "");
+  const [notes, setNotes] = useState(
+    assessment ? (assessment.notes ?? "") : "",
+  );
   const [errors, setErrors] = useState<FormErrors>({});
 
   const validate = () => {
@@ -139,9 +141,11 @@ export default function AssessmentMetaForm({ assessment, onSubmit }: Props) {
           {errors.notes && <p className="form-error">{errors.notes}</p>}
         </label>
 
-        <button type="submit" className="primary-button">
-          Save
-        </button>
+        <div className="flex-center">
+          <button type="submit" className="primary-button">
+            Save
+          </button>
+        </div>
       </form>
     </section>
   );
