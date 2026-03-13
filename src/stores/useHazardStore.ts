@@ -77,7 +77,7 @@ export const useHazardStore = create<HazardStore>((set, get) => ({
     }
   },
 
-  updateHazard: async (id: string, payload: Hazard) => {
+  updateHazard: async (id: string, payload: Partial<Hazard>) => {
     set({ error: null });
 
     try {

@@ -38,7 +38,7 @@ export default function HazardList({
     setIsUpdateHazardOpen(open);
   };
 
-  const handleUpdateHazard = (payload: Hazard) => {
+  const handleUpdateHazard = (payload: Partial<Hazard>) => {
     if (activeHazard) updateHazard(activeHazard.id, payload);
     openEditHazard(undefined, false);
   };

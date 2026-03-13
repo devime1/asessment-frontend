@@ -35,7 +35,6 @@ export default function AssessmentPage() {
   }, [assessmentId, fetchAssessmentById, fetchHazards]);
 
   if (Number.isNaN(assessmentId)) {
-    x;
     return <div>Invalid assessment ID.</div>;
   }
 

@@ -1,5 +1,5 @@
 import { useState } from "react";
-import type { Hazard } from "../types/hazard";
+import type { Hazard, RiskLevel } from "../types/hazard";
 
 type Props = {
   assessmentId: string;
@@ -22,16 +22,20 @@ export default function AddHazardForm({
 }: Props) {
   const [title, setTitle] = useState(hazard ? hazard.title : "");
   const [description, setDescription] = useState(
-    hazard ? hazard.description ?? "" : "",
+    hazard ? (hazard.description ?? "") : "",
   );
   const [riskLevel, setRiskLevel] = useState(
-    hazard ? hazard.risk_level ?? "Medium" : "Medium",
+    hazard ? (hazard.risk_level ?? "Medium") : "Medium",
   );
-  const [severity, setSeverity] = useState(hazard ? hazard.severity ?? "" : "");
+  const [severity, setSeverity] = useState(
+    hazard ? (hazard.severity ?? "") : "",
+  );
   const [likelihood, setLikelihood] = useState(
-    hazard ? hazard.likelihood ?? "" : "",
+    hazard ? (hazard.likelihood ?? "") : "",
   );
-  const [status, setStatus] = useState(hazard ? hazard.status ?? "Open" : "Open");
+  const [status, setStatus] = useState(
+    hazard ? (hazard.status ?? "Open") : "Open",
+  );
 
   const [errors, setErrors] = useState<FormErrors>({});
 
@@ -49,7 +53,10 @@ export default function AddHazardForm({
       newErrors.title = "Title must not exceed 255 characters.";
     }
 
-    if (trimmedDescription.length > 0 && typeof trimmedDescription !== "string") {
+    if (
+      trimmedDescription.length > 0 &&
+      typeof trimmedDescription !== "string"
+    ) {
       newErrors.description = "Description must be a string.";
     }
 
@@ -134,7 +141,7 @@ export default function AddHazardForm({
           <select
             value={riskLevel}
             onChange={(e) => {
-              setRiskLevel(e.target.value);
+              setRiskLevel(e.target.value as RiskLevel);
               if (errors.risk_level) {
                 setErrors((prev) => ({ ...prev, risk_level: undefined }));
               }

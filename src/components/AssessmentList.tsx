@@ -4,7 +4,7 @@ import AssessmentListItem from "./AssessmentListItem";
 type Props = {
   assessments: Assessment[];
   isFetching: boolean;
-  onSelectAssessment: (id: number) => void;
+  onSelectAssessment: (id: string) => void;
 };
 
 export default function AssessmentList({
